@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.editorial-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.tonal-card {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  transition: all 0.3s ease;
+}
+
+.tonal-card:hover {
+  box-shadow: 0 20px 40px -10px rgba(74, 44, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.hero-gradient {
+  background:
+    linear-gradient(rgba(254, 249, 242, 0.82), rgba(254, 249, 242, 0.82)),
+    url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+}

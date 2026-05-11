@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Catálogo Minas Doce — Linha completa de doces artesanais mineiros para atacado: pé de moleque, doce de leite, cocadas, goiabada e muito mais."/>
+<title>Catálogo — Minas Doce</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-surface": "#32302c",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#f7fff2",
+          "surface-container-high": "#ece7e1",
+          "on-surface-variant": "#524439",
+          "inverse-on-surface": "#f5f0e9",
+          "surface-container-low": "#f8f3ec",
+          "inverse-primary": "#ffb77c",
+          "primary-fixed": "#ffdcc2",
+          "secondary-fixed-dim": "#eabcb8",
+          "success-leaf": "#5f7c5f",
+          "on-background": "#1d1c18",
+          "outline": "#857467",
+          "background": "#fef9f2",
+          "surface-container": "#f2ede6",
+          "secondary-container": "#ffcfcb",
+          "outline-variant": "#d8c3b4",
+          "on-secondary": "#ffffff",
+          "on-secondary-fixed-variant": "#5f3e3c",
+          "tertiary": "#476347",
+          "surface-dim": "#ded9d3",
+          "on-tertiary-fixed-variant": "#324d33",
+          "on-primary-fixed-variant": "#6d3900",
+          "error": "#ba1a1a",
+          "primary-container": "#a66528",
+          "tertiary-fixed-dim": "#afcfad",
+          "error-container": "#ffdad6",
+          "primary": "#894d10",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-surface": "#1d1c18",
+          "on-tertiary": "#ffffff",
+          "surface-variant": "#e6e2db",
+          "primary-fixed-dim": "#ffb77c",
+          "on-primary-fixed": "#2e1500",
+          "secondary": "#795553",
+          "surface-bright": "#fef9f2",
+          "surface-tint": "#8c4f13",
+          "on-primary": "#ffffff",
+          "tertiary-container": "#5f7c5f",
+          "on-secondary-fixed": "#2e1413",
+          "on-primary-container": "#fffbff",
+          "surface": "#fef9f2",
+          "on-secondary-container": "#7a5654",
+          "tertiary-fixed": "#cbebc8",
+          "on-tertiary-fixed": "#06210b",
+          "surface-container-highest": "#e6e2db",
+          "secondary-fixed": "#ffdad7"
+        },
+        "borderRadius": {
+          "sm": "0.25rem",
+          "DEFAULT": "0.5rem",
+          "md": "0.75rem",
+          "lg": "1rem",
+          "xl": "1.5rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "section-sm": "40px",
+          "section-lg": "120px",
+          "section-md": "80px",
+          "base": "8px",
+          "gutter": "24px",
+          "container-max": "1280px",
+          "section-padding": "80px",
+          "margin-mobile": "16px"
+        },
+        "fontFamily": {
+          "h3": ["Newsreader"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "h1": ["Newsreader"],
+          "label-sm": ["Work Sans"],
+          "h1-mobile": ["Newsreader"],
+          "h2": ["Newsreader"]
+        },
+        "fontSize": {
+          "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+          "h1-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+          "h2": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #fef9f2;
+    color: #1d1c18;
+    -webkit-font-smoothing: antialiased;
+  }
+  .editorial-shadow {
+    box-shadow: 0 10px 30px -15px rgba(74, 44, 42, 0.15);
+  }
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(74, 44, 42, 0.2);
+  }
+</style>
+</head>
+<body class="font-body-md text-body-md">
+
+<!-- ── TopNavBar ──────────────────────────────────────────────────────────── -->
+<header class="fixed top-0 w-full bg-surface/95 backdrop-blur-md shadow-sm z-50">
+  <nav class="relative flex items-center justify-between h-20 px-gutter max-w-container-max mx-auto">
+    <a href="index.html" class="font-h2 text-h2 font-bold text-primary z-10">Minas Doce</a>
+
+    <div id="desktop-nav" class="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2">
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="catalogo.html">Catálogo</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="index.html#contato">Seja Parceiro</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="index.html#heranca">Nossa História</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="index.html#contato">Contato</a>
+    </div>
+
+    <div class="flex items-center z-10">
+      <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento+da+Minas+Doce." target="_blank" rel="noopener" class="hidden md:inline-flex bg-primary-container text-on-primary-container px-6 py-2 rounded-lg hover:opacity-90 transition-all font-body-md text-body-md font-medium">Solicitar Orçamento</a>
+      <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2" aria-label="Abrir menu">
+        <span id="menu-icon" class="material-symbols-outlined text-primary">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant px-gutter pb-6">
+    <div class="flex flex-col gap-1 pt-4">
+      <a href="catalogo.html" class="text-primary font-bold font-body-md text-body-md py-3 border-b border-outline-variant/50">Catálogo</a>
+      <a href="index.html#contato" class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md py-3 border-b border-outline-variant/50">Seja Parceiro</a>
+      <a href="index.html#heranca" class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md py-3 border-b border-outline-variant/50">Nossa História</a>
+      <a href="index.html#contato" class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md py-3 border-b border-outline-variant/50">Contato</a>
+      <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento+da+Minas+Doce." target="_blank" rel="noopener" class="mt-4 bg-primary-container text-on-primary-container px-6 py-3 rounded-lg text-center font-medium font-body-md text-body-md">Solicitar Orçamento</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20">
+  <div class="max-w-container-max mx-auto px-gutter py-section-padding">
+
+    <!-- ── Page Header ────────────────────────────────────────────────────── -->
+    <section class="mb-16">
+      <span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-3 py-1 rounded-full inline-block mb-4 uppercase tracking-widest">Nosso Catálogo</span>
+      <h1 class="font-h1 text-h1-mobile md:text-h1 text-on-surface mb-4">Tradição que impulsiona o seu negócio</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Descubra nossa linha completa de doces artesanais, produzidos com ingredientes selecionados para garantir a máxima qualidade aos seus clientes.</p>
+    </section>
+
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      <!-- ── Sidebar Filtros ───────────────────────────────────────────────── -->
+      <aside class="w-full lg:w-56 shrink-0">
+        <div class="sticky top-28 space-y-8">
+          <div>
+            <h3 class="font-h3 text-h3 text-on-surface mb-6 border-b border-outline-variant/30 pb-3">Categorias</h3>
+            <ul class="space-y-5">
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input checked class="category-filter w-5 h-5 rounded-sm border-outline-variant text-primary focus:ring-primary/20 bg-surface-container accent-primary" type="checkbox" value="Linha Cubo"/>
+                  <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Linha Cubo</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input checked class="category-filter w-5 h-5 rounded-sm border-outline-variant text-primary focus:ring-primary/20 bg-surface-container accent-primary" type="checkbox" value="Linha Pastosa"/>
+                  <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Linha Pastosa</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input checked class="category-filter w-5 h-5 rounded-sm border-outline-variant text-primary focus:ring-primary/20 bg-surface-container accent-primary" type="checkbox" value="Linha Barra"/>
+                  <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Linha Barra</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input checked class="category-filter w-5 h-5 rounded-sm border-outline-variant text-primary focus:ring-primary/20 bg-surface-container accent-primary" type="checkbox" value="Linha Caixa"/>
+                  <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Linha Caixa</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 border-t border-outline-variant/30">
+            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Precisa de ajuda?</p>
+            <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+preciso+de+ajuda+com+o+cat%C3%A1logo+Minas+Doce." target="_blank" rel="noopener" class="flex items-center gap-2 text-primary font-body-md font-medium hover:opacity-80 transition-opacity">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── Product Grid ──────────────────────────────────────────────────── -->
+      <div class="flex-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+          <!-- Produto 1: Pé de Moleque — Linha Cubo -->
+          <div data-category="Linha Cubo" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Pé de Moleque" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdsuntVCa_4Ehq5YRFoU2C9CoDmcdvIBkVDFvgNhnDuFzDRit04SLtyPyPB8edhRvbKPQbxtl0tDLr8bY2SIwcpNGljZsBbDXfUHJiFcx-icNzApxyLsjq5xJT_E6lDvzjVtbPxWm9F7CIqcriPKPKu-oXo7pth9V6veQTRyw8gWHF-Yq-NobvUT5cG8dDSjpbH-xw98bJxz-nJWl7-VXQPSBXDCDmJlynB6t46Z1L5iOJUr_MNOcNNPlKBBETprKUuUE4iUSZ-Y0"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-tertiary text-on-tertiary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Cubo</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Pé de Moleque</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Clássico crocante feito com amendoins selecionados e caramelo no ponto perfeito.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+P%C3%A9+de+Moleque+para+meu+neg%C3%B3cio." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+P%C3%A9+de+Moleque." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 2: Doce de Leite Tablete — Linha Cubo -->
+          <div data-category="Linha Cubo" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Doce de Leite em Tablete" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvutwb5aqsDZebFMeEqWwk_YbVNLUWshV74JpPVkRnj7zM_0grhh811CzwmaqU62LOeKmQz5YFhe1tj6ikHvfjtmsAb1xb7ZrcSjVCfM13qW-Dt_KxKK5zG-SregYrapIRLd4Mxj_6NPb8rAKy2uhh7nendOGZNppqUikqM4egnR3pUsjFd8AHAeqowYMNhkhh9zdpJGWpJALmV0b1NsCeuPi_W-O53D9b0YWzTqdB3R7e7M1DTPG-Mk9o1u6Xji1aRvKEgiNAgcM"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-tertiary text-on-tertiary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Cubo</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Doce de Leite Tablete</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">A tradicional cremosidade mineira em formato prático de corte.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Doce+de+Leite+Tablete." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+Doce+de+Leite+Tablete." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 3: Cocada Branca — Linha Cubo -->
+          <div data-category="Linha Cubo" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Cocada Branca" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj6U2xo9J_AivRDQ_cdtP8YLwU_mVLHqoY-Ps9j7ZJ_HeIvGXM2PkflrEklId1KToZTUzizTy6MnxqlbfEAqERVfDWyR3f38Z7DJ2oQhkL9120mVazZCtgy4Zh4lbbxzjJt8DJv5xtRtsfirFBq7n9-Dcv81KJrTVOHqg2m7MHMOpZwoYT63nCE1_1GZanVrMy4_5mIhrifgQpLJnIPmkIjj4eaVBccTjzvuCGk5Xy9Ds9hlwp689UhDScAoGafAidLhX0TKrZSyg"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-tertiary text-on-tertiary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Cubo</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Cocada Branca</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Cocada artesanal de textura macia e sabor intenso de coco fresco.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Cocada+Branca." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Cocada+Branca." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 4: Cocada Queimada — Linha Cubo -->
+          <div data-category="Linha Cubo" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Cocada Queimada" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHFnHGk_Cw7LasKAd5H67OWRqQQg9vaXK0NeUjQDWL-Uzhs7hqIyua0qQ19W2TeW_3w4a6xq_l52SWQ_Z_mDtTkuU03SdUXnjp_CjzaafrF0yY33yluXp-hOTpgIQiFsy-2MP7icFWLy1k5bfQS4qPHIz4DgZ5bUEKksiDuMZ9_DVm01Mt77HSSQuK3Au9BBiY-RljWH9cvViW-qVOSKp3WlEMW_DxESvoeZUut9F_JsUMh_KCUWpmitgXZnNjj8WeBz39V4KjqUI"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-tertiary text-on-tertiary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Cubo</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Cocada Queimada</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">A versão levemente tostada da nossa cocada, com notas caramelizadas.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Cocada+Queimada." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Cocada+Queimada." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 5: Doce de Leite Tradicional — Linha Pastosa -->
+          <div data-category="Linha Pastosa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Doce de Leite Tradicional" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm_1HquZy4YwECDOj1sFD6E5sVj0qhFWil07tIOb57Ad9JrYLjLowbyUj0HSnKJvWoM8Ru9AZcvo3mSQZt0r5-Dv9dYjogywnhZUkkALvF1IlPXOtmB3dMwl8OFQoiFmkRO5L0ZsbVAgRMw8QMM9MS3-jynqqG0V49eg4_Cs1ZDNlZyOGp_oXkpA0e3Ndb1of5nQZrxJNwRjFYrQC8j-jJkgujrMELTZMlfx1QmGmuoFgxGd6t1b1HV_GgiJGsjED9y7IJlYhh84o"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Pastosa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Doce de Leite Tradicional</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Receita centenária mineira com redução lenta, garantindo cremosidade incomparável.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Doce+de+Leite+Tradicional." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+Doce+de+Leite+Tradicional." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 6: Goiabada Cascão — Linha Pastosa -->
+          <div data-category="Linha Pastosa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Goiabada Cascão" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHspQPQYhrnbAWT_ctSHlJBYK9pca-DUeFUejZIDqmqManZc7AJ-WeDyzqZ05OUEi5z8-15cDPS3gZcqzXugz7kYvjgQijfTAncJVERZQU4GowMR7dvW4olevoZdhg0WLnXd0ET0Q_ksWw5yqCyha-qyhhw5irM3ncsIxyxdTsrqT0LBvfLqPsaurtDFo-SqoRnkJoTJqHTdyE_SOQuQ1hw6_EkFNEOonj7QblzhKn607f2tLgPHYlSVyxqpbe0lfPShl-JK8xr6g"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Pastosa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Goiabada Cascão</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Produzida com goiabas selecionadas, preservando pedaços da fruta para textura rústica.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Goiabada+Casc%C3%A3o." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Goiabada+Casc%C3%A3o." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 7: Ambrosia Tradicional — Linha Pastosa -->
+          <div data-category="Linha Pastosa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Ambrosia Tradicional" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnYEDz7EGdsqOSad_IPQ4HXcWraRzvnc3sFi-EbHqMqwVwpkbDlboC_fOl1qQ5vpDpWa043smfkMrbWO5_zkVPwielpdwzRFw46Yydo4Yb77v7IflQdUCZysQ9K-da-T5oiVyq1hsS71GkUQZQUY2fgOl-sZvxAuL-xLDgLCnozXA27DL0MqzYJ0_ipqbLUyuppw9JH8M0PEwI9xUB5T86-PqYJWVLJgkffep4iSITaEZsaulcdJ6ffFEZcw6sPvhbJHYvi4RdjNI"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-secondary text-on-secondary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Pastosa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Ambrosia Tradicional</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">O doce dos deuses, com leite fresco, ovos e um toque de canela e cravo.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Ambrosia+Tradicional." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Ambrosia+Tradicional." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 8: Doce de Leite em Barra — Linha Barra -->
+          <div data-category="Linha Barra" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Doce de Leite em Barra" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXRSLPKHU9vOifrHKwaSIzGngp0vnYIcKq--S3WKPQMLR8Ncv97JlbTcUzubsqQaADClviiH3OSO81FjKG_xrCr_rAkL-Cp3IQ4hdOQW87pdR4zaUPYm5pOePc4fodJqvL7CokVfBl2nMxBBwNewPiAda0NZYJq5mz-EOjuP-Excrcw4IWjL12Hb40K292crTduohnLk8-t40scH-MVY5JB2wrc0iF8MHOyBRpkU-RrTQW30kWgjo7Ct8sAsB0wBX2nUgmFXPvIP8"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary text-on-primary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Barra</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Doce de Leite em Barra</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Barra de 500g de puro doce de leite mineiro, ideal para corte e sobremesas.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Doce+de+Leite+em+Barra." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+Doce+de+Leite+em+Barra." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 9: Bananinha — Linha Barra -->
+          <div data-category="Linha Barra" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Bananinha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubGyAdLLb2XYiFQ6CzyNKjpHkpOU-g_PWaOLFoOeipCug1bid6880tuvEXIjhiGp7ej1APs0o5RUE5KIDSWcVfpzW121WAMRX-KqSJqJGjG_N-P_YrlWOwbJ4ukqudLV60XL6Zk-VsecavBZ13Qi_HoDTbsd6cUbOjYFHeIzbYwygAJrHGPc-kE7L8vvWtjEP6hr1oorBHMkRnpB5plzqViAz7Xq0uC4-al05RTJQQakijiQvyyZ3tdWtjyw36mocbb1yJLFJu38"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary text-on-primary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Barra</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Bananinha</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Doce de banana concentrado em barra, sabor intenso e textura macia.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Bananinha." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Bananinha." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 10: Goiabada em Barra — Linha Barra -->
+          <div data-category="Linha Barra" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Goiabada em Barra" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHspQPQYhrnbAWT_ctSHlJBYK9pca-DUeFUejZIDqmqManZc7AJ-WeDyzqZ05OUEi5z8-15cDPS3gZcqzXugz7kYvjgQijfTAncJVERZQU4GowMR7dvW4olevoZdhg0WLnXd0ET0Q_ksWw5yqCyha-qyhhw5irM3ncsIxyxdTsrqT0LBvfLqPsaurtDFo-SqoRnkJoTJqHTdyE_SOQuQ1hw6_EkFNEOonj7QblzhKn607f2tLgPHYlSVyxqpbe0lfPShl-JK8xr6g"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary text-on-primary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Barra</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Goiabada em Barra</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Bloco firme de goiabada cascão, perfeito para fatiamento e receitas.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+Goiabada+em+Barra." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Goiabada+em+Barra." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 11: Caixa Presente Sortida — Linha Caixa -->
+          <div data-category="Linha Caixa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Caixa Presente Sortida" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm_1HquZy4YwECDOj1sFD6E5sVj0qhFWil07tIOb57Ad9JrYLjLowbyUj0HSnKJvWoM8Ru9AZcvo3mSQZt0r5-Dv9dYjogywnhZUkkALvF1IlPXOtmB3dMwl8OFQoiFmkRO5L0ZsbVAgRMw8QMM9MS3-jynqqG0V49eg4_Cs1ZDNlZyOGp_oXkpA0e3Ndb1of5nQZrxJNwRjFYrQC8j-jJkgujrMELTZMlfx1QmGmuoFgxGd6t1b1HV_GgiJGsjED9y7IJlYhh84o"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Caixa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Caixa Presente Sortida</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Mix de doces mineiros em embalagem presenteável, ideal para datas comemorativas.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+a+Caixa+Presente+Sortida." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Caixa+Presente+Sortida." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 12: Display de Paçoquinha — Linha Caixa -->
+          <div data-category="Linha Caixa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Display de Paçoquinha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdsuntVCa_4Ehq5YRFoU2C9CoDmcdvIBkVDFvgNhnDuFzDRit04SLtyPyPB8edhRvbKPQbxtl0tDLr8bY2SIwcpNGljZsBbDXfUHJiFcx-icNzApxyLsjq5xJT_E6lDvzjVtbPxWm9F7CIqcriPKPKu-oXo7pth9V6veQTRyw8gWHF-Yq-NobvUT5cG8dDSjpbH-xw98bJxz-nJWl7-VXQPSBXDCDmJlynB6t46Z1L5iOJUr_MNOcNNPlKBBETprKUuUE4iUSZ-Y0"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Caixa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Display de Paçoquinha</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Expositor de balcão com 48 unidades de paçoquinha, pronto para o PDV.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+o+Display+de+Pa%C3%A7oquinha." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+Display+de+Pa%C3%A7oquinha." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 13: Caixa de Canudos — Linha Caixa -->
+          <div data-category="Linha Caixa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Caixa de Canudos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj6U2xo9J_AivRDQ_cdtP8YLwU_mVLHqoY-Ps9j7ZJ_HeIvGXM2PkflrEklId1KToZTUzizTy6MnxqlbfEAqERVfDWyR3f38Z7DJ2oQhkL9120mVazZCtgy4Zh4lbbxzjJt8DJv5xtRtsfirFBq7n9-Dcv81KJrTVOHqg2m7MHMOpZwoYT63nCE1_1GZanVrMy4_5mIhrifgQpLJnIPmkIjj4eaVBccTjzvuCGk5Xy9Ds9hlwp689UhDScAoGafAidLhX0TKrZSyg"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Caixa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Caixa de Canudos</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Canudos recheados com doce de leite em caixa para revenda, 30 unidades.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+a+Caixa+de+Canudos." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+a+Caixa+de+Canudos." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 14: Mix de Doces Caseiros — Linha Caixa -->
+          <div data-category="Linha Caixa" class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover">
+            <div class="aspect-[4/3] relative">
+              <img alt="Mix de Doces Caseiros" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHFnHGk_Cw7LasKAd5H67OWRqQQg9vaXK0NeUjQDWL-Uzhs7hqIyua0qQ19W2TeW_3w4a6xq_l52SWQ_Z_mDtTkuU03SdUXnjp_CjzaafrF0yY33yluXp-hOTpgIQiFsy-2MP7icFWLy1k5bfQS4qPHIz4DgZ5bUEKksiDuMZ9_DVm01Mt77HSSQuK3Au9BBiY-RljWH9cvViW-qVOSKp3WlEMW_DxESvoeZUut9F_JsUMh_KCUWpmitgXZnNjj8WeBz39V4KjqUI"/>
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded font-label-sm text-label-sm uppercase">Linha Caixa</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-h3 text-h3 text-on-surface mb-2">Mix de Doces Caseiros</h3>
+              <p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Variedade de doces mineiros tradicionais em embalagem de atacado para mercados.</p>
+              <div class="flex items-center justify-between gap-4">
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+or%C3%A7ar+o+Mix+de+Doces+Caseiros." target="_blank" rel="noopener" class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center">Solicitar Orçamento</a>
+                <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+mais+detalhes+sobre+o+Mix+de+Doces+Caseiros." target="_blank" rel="noopener" class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all">
+                  <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="hidden py-24 text-center">
+          <span class="material-symbols-outlined text-outline text-6xl mb-4 block">search_off</span>
+          <p class="font-h3 text-h3 text-on-surface-variant">Nenhuma categoria selecionada</p>
+          <p class="font-body-md text-on-surface-variant mt-2">Marque pelo menos uma categoria na lateral para ver os produtos.</p>
+        </div>
+
+        <!-- Ver mais -->
+        <div id="ver-mais-wrapper" class="mt-12 text-center hidden">
+          <button id="ver-mais-btn" class="inline-flex items-center gap-2 border-2 border-primary text-primary px-10 py-4 rounded-xl font-body-md font-semibold hover:bg-primary/5 transition-all">
+            Ver mais
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── B2B Call to Action ─────────────────────────────────────────────────── -->
+<section class="bg-inverse-surface py-20 mt-20">
+  <div class="max-w-container-max mx-auto px-gutter text-center">
+    <h2 class="font-h2 text-h1-mobile md:text-h1 text-primary-fixed mb-6">Deseja revender nossos produtos?</h2>
+    <p class="font-body-lg text-body-lg text-on-primary-container/80 max-w-2xl mx-auto mb-10">
+      Oferecemos condições logísticas diferenciadas para nossos parceiros B2B em todo o Brasil.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+receber+o+cat%C3%A1logo+completo+da+Minas+Doce." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-body-md font-bold hover:scale-105 transition-all">
+        <span class="material-symbols-outlined">download</span>
+        Baixar Catálogo Completo
+      </a>
+      <a href="https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+consultor+da+Minas+Doce." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary-fixed text-primary-fixed rounded-xl font-body-md font-bold hover:bg-primary-fixed hover:text-on-background transition-all">
+        Falar com Consultor
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────────────────── -->
+<footer class="bg-inverse-surface w-full border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-base py-section-md px-gutter max-w-container-max mx-auto">
+    <div class="col-span-1">
+      <div class="font-h3 text-h3 text-primary-fixed mb-6">Minas Doce</div>
+      <p class="text-on-primary-container/80 font-body-md text-body-md mb-6 leading-relaxed">
+        Tradição e qualidade mineira entregues com eficiência para o seu negócio crescer com sabor e confiança.
+      </p>
+      <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-primary-fixed-dim hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+          <span class="material-symbols-outlined text-sm">public</span>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-primary-fixed-dim hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+          <span class="material-symbols-outlined text-sm">photo_camera</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest mb-6">Menu</h4>
+      <ul class="space-y-4">
+        <li><a class="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md" href="index.html#atacado">Termos de Atacado</a></li>
+        <li><a class="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md" href="catalogo.html">Catálogo</a></li>
+        <li><a class="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Certificações de Qualidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest mb-6">Legal</h4>
+      <ul class="space-y-4">
+        <li><a class="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Política de Privacidade</a></li>
+        <li><a class="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest mb-6">Contato</h4>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3 text-on-primary-container/80">
+          <span class="material-symbols-outlined text-primary-fixed text-sm mt-0.5">location_on</span>
+          <span class="font-body-md text-body-md">Av. das Palmeiras, 1500 — Distrito Industrial<br/>Belo Horizonte — MG</span>
+        </li>
+        <li class="flex items-center gap-3 text-on-primary-container/80">
+          <span class="material-symbols-outlined text-primary-fixed text-sm">call</span>
+          <span class="font-body-md text-body-md">+55 (31) 9876-5432</span>
+        </li>
+        <li class="flex items-center gap-3 text-on-primary-container/80">
+          <span class="material-symbols-outlined text-primary-fixed text-sm">mail</span>
+          <span class="font-body-md text-body-md">sac@minasdoce.com.br</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-gutter py-8 border-t border-white/5 text-center md:text-left">
+    <p class="text-on-primary-container/60 font-body-md text-body-md">
+      © 2024 Minas Doce Tradicional. Todos os direitos reservados. Qualidade artesanal para parceiros B2B.
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/catalogo.js"></script>
+</body>
+</html>
