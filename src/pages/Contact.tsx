@@ -2,22 +2,22 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const WA_BASE = 'https://wa.me/5531987654321'
+const WA_BASE = 'https://wa.me/5541996832244'
 
 interface FormState {
   name: string
   email: string
   phone: string
+  company: string
+  city: string
   subject: string
   message: string
 }
 
 const SUBJECTS = [
-  'Dúvida sobre produtos',
-  'Solicitar orçamento',
-  'Informações de parceria',
-  'Suporte a parceiro',
-  'Outro assunto',
+  'Distribuição Atacadista',
+  'Revenda em Varejo/Empório',
+  'Exportação',
 ]
 
 export default function Contact() {
@@ -25,6 +25,8 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
+    company: '',
+    city: '',
     subject: SUBJECTS[0],
     message: '',
   })
@@ -38,15 +40,16 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const lines = [
-      `Olá! Entrei em contato pelo site da Minas Doce.`,
+      'Olá! Entrei em contato pelo site da Minas Doce.',
       '',
       `Nome: ${form.name}`,
       `E-mail: ${form.email}`,
-      `Telefone: ${form.phone}`,
-      `Assunto: ${form.subject}`,
-      '',
-      `Mensagem: ${form.message}`,
+      `WhatsApp: ${form.phone}`,
+      `Empresa: ${form.company}`,
+      `Cidade: ${form.city}`,
+      `Interesse: ${form.subject}`,
     ]
+    if (form.message.trim()) lines.push('', `Mensagem: ${form.message}`)
     window.open(`${WA_BASE}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
   }
 
@@ -151,7 +154,7 @@ export default function Contact() {
 
               <div className="space-y-2">
                 <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
-                  E-mail
+                  E-mail Corporativo
                 </label>
                 <input
                   name="email"
@@ -159,18 +162,19 @@ export default function Contact() {
                   required
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="seu@email.com"
+                  placeholder="seu@empresa.com.br"
                   className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
                 />
               </div>
 
               <div className="space-y-2">
                 <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
-                  Telefone
+                  WhatsApp
                 </label>
                 <input
                   name="phone"
                   type="tel"
+                  required
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="(00) 00000-0000"
@@ -178,9 +182,39 @@ export default function Contact() {
                 />
               </div>
 
+              <div className="space-y-2">
+                <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                  Razão Social / CNPJ
+                </label>
+                <input
+                  name="company"
+                  type="text"
+                  required
+                  value={form.company}
+                  onChange={handleChange}
+                  placeholder="Nome da sua empresa"
+                  className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                  Cidade / UF
+                </label>
+                <input
+                  name="city"
+                  type="text"
+                  required
+                  value={form.city}
+                  onChange={handleChange}
+                  placeholder="Onde você está?"
+                  className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                />
+              </div>
+
               <div className="md:col-span-2 space-y-2">
                 <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
-                  Assunto
+                  Interesse Principal
                 </label>
                 <select
                   name="subject"
@@ -196,15 +230,14 @@ export default function Contact() {
 
               <div className="md:col-span-2 space-y-2">
                 <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
-                  Mensagem
+                  Mensagem (Opcional)
                 </label>
                 <textarea
                   name="message"
-                  rows={5}
-                  required
+                  rows={4}
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="Como podemos ajudar?"
+                  placeholder="Conte-nos um pouco sobre o seu negócio..."
                   className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary resize-none"
                 />
               </div>

@@ -1,392 +1,408 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { products, categoryBadge } from '../data/products'
 
-const WA_PARCEIRO = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+tenho+interesse+em+ser+parceiro+da+Minas+Doce.'
-const WA_CATALOGO = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+receber+o+cat%C3%A1logo+completo+da+Minas+Doce.'
-const WA_CONSULTOR = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+consultor+da+Minas+Doce.'
-const WA_MARCA_PROPRIA = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento+de+marca+pr%C3%B3pria.'
 
-const featuredIds = [1, 5, 8]
-const featured = products.filter((p) => featuredIds.includes(p.id))
+const INTERESTS = [
+  'Distribuição Atacadista',
+  'Revenda em Varejo/Empório',
+  'Exportação',
+]
+
+interface FormState {
+  name: string
+  email: string
+  phone: string
+  company: string
+  city: string
+  interest: string
+  message: string
+}
 
 export default function Home() {
+  const [form, setForm] = useState<FormState>({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    city: '',
+    interest: INTERESTS[0],
+    message: '',
+  })
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const lines = [
+      'Olá, gostaria de ser parceiro da Minas Doce.',
+      '',
+      `Nome: ${form.name}`,
+      `E-mail: ${form.email}`,
+      `WhatsApp: ${form.phone}`,
+      `Empresa: ${form.company}`,
+      `Cidade: ${form.city}`,
+      `Interesse: ${form.interest}`,
+    ]
+    if (form.message.trim()) lines.push('', `Mensagem: ${form.message}`)
+    window.open(`https://wa.me/5531987654321?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
+  }
+
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background text-on-surface min-h-screen">
       <Navbar />
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="bg-surface-container-low py-section-lg">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Texto */}
-            <div>
-              <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6">
-                Atacado B2B — Minas Gerais
-              </span>
-              <h1 className="font-h1 text-h1-mobile md:text-h1 text-on-surface mb-6">
-                Tradição Mineira<br />no seu PDV
-              </h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-10">
-                Doces artesanais fabricados em Minas Gerais com receitas centenárias.
-                Fornecemos para mercados, panificadoras e mercearias em todo o Brasil.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={WA_PARCEIRO}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-body-md font-bold hover:opacity-90 transition-all"
-                >
-                  <span className="material-symbols-outlined">handshake</span>
-                  Seja um Parceiro
-                </a>
-                <Link
-                  to="/catalogo"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-xl font-body-md font-bold hover:bg-primary/5 transition-all"
-                >
-                  <span className="material-symbols-outlined">menu_book</span>
-                  Ver Catálogo
-                </Link>
-              </div>
-            </div>
-
-            {/* Card de imagem */}
-            <div className="relative h-[420px] lg:h-[500px] rounded-xl overflow-hidden group hidden lg:block">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjMwl3ikHGkosJywQveEsK4iu6DIDntqb7APzH8PR56rIolpiX3FxeAoQvFYmJYrA097YAE0s1gTm-m0SYGCdKCqxKlxOvxAtjO5oaL-AJW6tU96JsNIFpG-5reTm-_Qjokku20XXAgVALDP0qAE8i0CuYw68rGcuQhdcHpiq13rL7OTThc06UMLSJ6nJiPSiofanz-SZ-gJGoJWuI8dSlHWnIqIJJSH_ahyY2zCk_NwtL6GGT5-JJTvfNnZWOLTfN5UVKoBIqYxE"
-                alt="Produção artesanal Minas Doce"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              {/* Badge flutuante */}
-              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl px-5 py-4 shadow-lg">
-                <div className="text-primary font-bold text-2xl leading-none">+400</div>
-                <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide mt-1">
-                  Parceiros Ativos
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Produtos em Destaque ─────────────────────────────────────────────── */}
-      <section id="produtos" className="py-section-lg">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="mb-12">
-            <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">
-              Linha Completa
+      <section className="py-section-padding px-gutter max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text */}
+          <div className="space-y-8">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase">
+              Expansão de Mercado B2B
             </span>
-            <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface">
-              Produtos em Destaque
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {featured.map((p) => (
-              <div
-                key={p.id}
-                className="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover"
-              >
-                <div className="aspect-[4/3] relative">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className={`${categoryBadge[p.category]} px-3 py-1 rounded font-label-sm text-label-sm uppercase`}>
-                      {p.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-h3 text-h3 text-on-surface mb-2">{p.name}</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">
-                    {p.description}
-                  </p>
-                  <div className="flex items-center justify-between gap-4">
-                    <a
-                      href={p.waQuote}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center"
-                    >
-                      Solicitar Orçamento
-                    </a>
-                    <a
-                      href={p.waDetails}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all"
-                    >
-                      <span className="material-symbols-outlined">visibility</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              to="/catalogo"
-              className="inline-flex items-center gap-2 border-2 border-primary text-primary px-10 py-4 rounded-xl font-body-md font-semibold hover:bg-primary/5 transition-all"
-            >
-              <span className="material-symbols-outlined">grid_view</span>
-              Ver todos os produtos
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── B2B Value Proposition ────────────────────────────────────────────── */}
-      <section id="atacado" className="bg-surface-container py-section-lg">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">
-                Por que a Minas Doce?
-              </span>
-              <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface mb-6">
-                Condições exclusivas para revendedores
-              </h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                Oferecemos condições logísticas diferenciadas para nossos parceiros B2B
-                em todo o Brasil. Prazo de entrega garantido, tabela de preços competitiva
-                e suporte comercial dedicado.
-              </p>
+            <h1 className="font-h1 text-h1-mobile md:text-h1 text-on-background">
+              Leve o sabor da{' '}
+              <span className="text-primary italic">tradição mineira</span> para sua loja.
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+              Seja um distribuidor ou revendedor autorizado Minas Doce. Oferecemos condições
+              exclusivas de atacado, suporte logístico nacional e produtos com selo de qualidade
+              artesanal.
+            </p>
+            <div className="flex flex-wrap gap-4">
               <a
-                href={WA_PARCEIRO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-body-md font-bold hover:opacity-90 transition-all"
+                href="#contact-form"
+                className="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 transition-colors inline-flex items-center gap-2"
               >
-                <span className="material-symbols-outlined">handshake</span>
-                Quero ser Parceiro
+                Seja um Parceiro
+                <span className="material-symbols-outlined">arrow_forward</span>
               </a>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                { icon: 'local_shipping', title: 'Entrega em todo o Brasil', desc: 'Logística própria para MG e transportadoras parceiras para demais estados.' },
-                { icon: 'percent', title: 'Tabela de Atacado', desc: 'Preços progressivos por volume com descontos para pedidos recorrentes.' },
-                { icon: 'support_agent', title: 'Consultor Dedicado', desc: 'Cada parceiro tem um consultor comercial exclusivo para atendimento personalizado.' },
-                { icon: 'inventory_2', title: 'Estoque Garantido', desc: 'Produção contínua e estoque regulador para nunca deixar o seu PDV vazio.' },
-              ].map((item) => (
-                <div key={item.icon} className="bg-surface-container-lowest border border-surface-variant rounded-xl p-6">
-                  <span className="material-symbols-outlined text-primary mb-3 block" style={{ fontSize: '32px' }}>
-                    {item.icon}
-                  </span>
-                  <h3 className="font-h3 text-body-lg font-semibold text-on-surface mb-2">{item.title}</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">{item.desc}</p>
-                </div>
-              ))}
+          </div>
+
+          {/* Image */}
+          <div className="relative">
+            <div className="rounded-xl overflow-hidden shadow-xl aspect-[4/3] relative group">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfaVezl1St-cjTpVjumLF8_YI4JzzNsJvfQqEhE6KbuKSoh9EOtno264EijC7BC3XoL4Hlr3DDi073InJIwwiDfPSa2bizA7aALqDz1yon4TzugSGo7R5yVv6iAVDzqr5AXIxj5O6ga0XtlwkzHAGVxQI54qZ0KGENyRddHdfYQZCEU_DpZc2jplHdd-moLYFIBnZ8Roa2nqtnWlbnXtyG6k8clj-7QX5_IMvhqDJoBITT6rTGEJLjEZQdrl_kZ9dCMeYyIjGOOzI"
+                alt="Interior de loja parceira Minas Doce"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
+            {/* Stats Badge */}
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-outline-variant/30 hidden md:block">
+              <div className="text-primary font-bold" style={{ fontSize: '36px', lineHeight: '1.2' }}>+2.5k</div>
+              <div className="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">PDVs Parceiros</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Marca Própria ────────────────────────────────────────────────────── */}
-      <section id="marca-propria" className="bg-surface-container-lowest py-section-lg">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">
-              Serviço Exclusivo
-            </span>
-            <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface mb-4">
-              Desenvolva sua Linha com a Nossa Expertise
+      {/* ── Value Propositions — Bento Grid ──────────────────────────────────── */}
+      <section className="py-section-padding px-gutter bg-surface-container-low mt-8">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface">
+              Por que escolher a Minas Doce?
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Fabricamos doces mineiros tradicionais sob a marca do seu negócio,
-              com formulação exclusiva e embalagem personalizada.
+            <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+              Aliamos a tradição da produção em pequenos lotes com a eficiência logística que seu negócio exige.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[
-              { icon: 'label', title: 'Embalagem Personalizada', desc: 'Arte, cores e logotipo do seu negócio em cada produto.' },
-              { icon: 'science', title: 'Formulação Exclusiva', desc: 'Receitas adaptadas ao seu público com sabores sob medida.' },
-              { icon: 'inventory', title: 'Pedido Mínimo Acessível', desc: 'Lotes iniciais reduzidos para você testar e crescer sem risco.' },
-            ].map((item) => (
-              <div key={item.icon} className="bg-surface-container border border-surface-variant rounded-xl p-8 text-center">
-                <span className="material-symbols-outlined text-primary mb-4 block" style={{ fontSize: '40px' }}>
-                  {item.icon}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 — Logística Ágil */}
+            <div className="tonal-card p-8 rounded-xl flex flex-col justify-between min-h-[300px]">
+              <div>
+                <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: '40px' }}>
+                  local_shipping
                 </span>
-                <h3 className="font-h3 text-h3 text-on-surface mb-3">{item.title}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">{item.desc}</p>
+                <h3 className="font-h3 text-h3 text-on-surface mb-4">Logística Ágil</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Entrega rápida em todo o território nacional com rastreio em tempo real e embalagens seguras.
+                </p>
               </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <a
-              href={WA_MARCA_PROPRIA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-body-md font-bold hover:opacity-90 transition-all"
-            >
-              <span className="material-symbols-outlined">chat</span>
-              Solicitar Orçamento de Marca Própria
-            </a>
+            </div>
+
+            {/* Card 2 — Qualidade Artesanal (destaque, 2 colunas) */}
+            <div className="p-8 rounded-xl flex flex-col justify-between min-h-[300px] md:col-span-2 bg-primary text-on-primary">
+              <div className="flex flex-col md:flex-row gap-8 items-center h-full">
+                <div className="flex-1">
+                  <span className="material-symbols-outlined mb-6 block" style={{ fontSize: '40px' }}>
+                    verified
+                  </span>
+                  <h3 className="font-h3 text-h3 text-white mb-4">Qualidade Artesanal</h3>
+                  <p className="font-body-md text-body-md opacity-90">
+                    Produtos fabricados com ingredientes selecionados de produtores locais, seguindo receitas centenárias da nossa família.
+                  </p>
+                </div>
+                <div className="hidden lg:block w-1/3 aspect-square rounded-lg overflow-hidden border border-white/20">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAt8VTitAD7go8Wt5jplik17En6lJk4ghwjPatQv3NbTp3xiEB9JF5JMqSPsJLWkWhrkTXVaVPn2O4dF6h5wxlxj706FxXVUP1smBeflQ7IqkfWyrfeSB689MyhyTJUCkKw2AIY2VKz19M_SdZGQ5Fq-V3kWUnJFQGDodj6klxjUgi3QnQw_mmn33jOpRTOeQGq_7tNToo2ETKXjmrg_CPMTVO7c7yD4gu8QdtXnOuIrYqBXgXbwTxzEldoNDKDjYfQHfAi2zWd5s"
+                    alt="Produção artesanal de doces"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 — Suporte ao Lojista (2 colunas) */}
+            <div className="tonal-card p-8 rounded-xl flex flex-col justify-between min-h-[300px] md:col-span-2">
+              <div className="flex flex-col md:flex-row-reverse gap-8 items-center h-full">
+                <div className="flex-1">
+                  <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: '40px' }}>
+                    support_agent
+                  </span>
+                  <h3 className="font-h3 text-h3 text-on-surface mb-4">Suporte ao Lojista</h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    Consultoria de vendas, materiais de PDV (displays e wobblers) e treinamento para sua equipe de vendas.
+                  </p>
+                </div>
+                <div className="hidden lg:block w-1/3 aspect-square rounded-lg overflow-hidden">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuATR_eDCYNLGSPpY60JyXXrusdjvufv612g2Dtjs6zdkusQ0d6Kj_2wj5CmgZ_8NWM5M4RrQhkwGB0D09-J7q1d3V1AxFPG1iPNLabn00GSt9Z95bA1bh0Ksmt-LuPbitwihCpG3DDUZb0FPu2IzGJKo_dkxS4xuhZwcf9bafuo3dAyQh5-iuBkWEs9T_o-Sgw_Zog679mzl3uxhYw22rVFLBeBeic29gwXmDSZ6l0nZuLnnOLwlv_vxwvps8KodrocpmgdHAj3s3o"
+                    alt="Reunião comercial"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 — Margens Competitivas */}
+            <div className="tonal-card p-8 rounded-xl flex flex-col justify-between min-h-[300px]">
+              <div>
+                <span className="material-symbols-outlined text-primary mb-6 block" style={{ fontSize: '40px' }}>
+                  payments
+                </span>
+                <h3 className="font-h3 text-h3 text-on-surface mb-4">Margens Competitivas</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Tabela diferenciada para grandes volumes, garantindo alta lucratividade e rotatividade para seu negócio.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Nossa Herança ────────────────────────────────────────────────────── */}
-      <section id="heranca" className="bg-surface-container py-section-lg">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">
-                Nossa História
-              </span>
-              <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface mb-6">
-                Três gerações de sabor e tradição
-              </h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-6">
-                Fundada em 1978 na cidade de Belo Horizonte, a Minas Doce nasceu de uma
-                receita familiar de pé de moleque transmitida de geração em geração.
-                O que começou como uma pequena cozinha artesanal hoje é uma indústria
-                que abastece centenas de pontos de venda em todo o Brasil.
-              </p>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                Mantemos o mesmo cuidado artesanal com ingredientes selecionados e
-                processos que respeitam o tempo de cada receita, porque acreditamos que
-                qualidade não deve ser negociada.
-              </p>
-              <div className="grid grid-cols-3 gap-6">
-                {[
-                  { num: '46+', label: 'Anos de história' },
-                  { num: '400+', label: 'Parceiros ativos' },
-                  { num: '14', label: 'Produtos no catálogo' },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="font-h2 text-h2 text-primary font-bold">{stat.num}</div>
-                    <div className="font-body-md text-body-md text-on-surface-variant">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 aspect-[4/3] rounded-xl overflow-hidden">
+      {/* ── Presença Nacional ─────────────────────────────────────────────────── */}
+      <section className="py-section-padding px-gutter max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Map */}
+          <div className="order-2 lg:order-1">
+            <div className="rounded-xl overflow-hidden shadow-lg border border-outline-variant/30 h-[500px] w-full grayscale-[0.5] hover:grayscale-0 transition-all duration-500">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm_1HquZy4YwECDOj1sFD6E5sVj0qhFWil07tIOb57Ad9JrYLjLowbyUj0HSnKJvWoM8Ru9AZcvo3mSQZt0r5-Dv9dYjogywnhZUkkALvF1IlPXOtmB3dMwl8OFQoiFmkRO5L0ZsbVAgRMw8QMM9MS3-jynqqG0V49eg4_Cs1ZDNlZyOGp_oXkpA0e3Ndb1of5nQZrxJNwRjFYrQC8j-jJkgujrMELTZMlfx1QmGmuoFgxGd6t1b1HV_GgiJGsjED9y7IJlYhh84o"
-                alt="Fábrica Minas Doce"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlaWDGBBdKYiZ6EhZVb06jpjer4YTwi0xZ3BbnHnO6sreYDmII9jHzsjlP16vQWQVCTzbLvrXPijFFajux4ZkkqQiO_7UgtUiKfV41MrtLXoFmNXDMxRxM1FzkCBhC5VznrVfmvkR9YtfdTxFisyp9TyuBkCvE8F_YprgT-maAOoQMXuK6gOrhM12ouwUzPDZu2CfFvKYvj9J-EQ6z4xqYOzh4NJJA38YHMj6khuUGQPxMN42ZcD0hwMxqj7jJuyiKxbTwWpKDtrw"
+                alt="Mapa de distribuição Minas Doce no Brasil"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── CTA do Catálogo ──────────────────────────────────────────────────── */}
-      <section className="bg-inverse-surface py-20">
-        <div className="max-w-container-max mx-auto px-gutter text-center">
-          <h2 className="font-h2 text-h1-mobile md:text-h1 text-primary-fixed mb-6">
-            Deseja revender nossos produtos?
-          </h2>
-          <p className="font-body-lg text-body-lg text-on-primary-container/80 max-w-2xl mx-auto mb-10">
-            Oferecemos condições logísticas diferenciadas para nossos parceiros B2B em todo o Brasil.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a
-              href={WA_CATALOGO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-body-md font-bold hover:scale-105 transition-all"
-            >
-              <span className="material-symbols-outlined">download</span>
-              Baixar Catálogo Completo
-            </a>
-            <a
-              href={WA_CONSULTOR}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary-fixed text-primary-fixed rounded-xl font-body-md font-bold hover:bg-primary-fixed hover:text-on-background transition-all"
-            >
-              Falar com Consultor
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Contato ──────────────────────────────────────────────────────────── */}
-      <section id="contato" className="bg-surface py-section-lg border-t border-outline-variant">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="mb-12">
-            <span className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">
-              Fale Conosco
-            </span>
+          {/* Text */}
+          <div className="order-1 lg:order-2 space-y-6">
             <h2 className="font-h2 text-h1-mobile md:text-h2 text-on-surface">
-              Fale com nosso time comercial
+              Presença em todo o Brasil
             </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant">
+              Nossa malha logística atende desde capitais até o interior profundo, garantindo
+              produtos frescos em qualquer região.
+            </p>
+            <ul className="space-y-4">
+              {[
+                'Logística Refrigerada Especializada',
+                'Centros de Distribuição em 5 estados',
+                'Exportação para Mercados Premium',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-4">
+                  <span className="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-on-tertiary-fixed" style={{ fontSize: '16px' }}>
+                      check
+                    </span>
+                  </span>
+                  <span className="font-body-md text-body-md font-medium text-on-surface">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="pt-6 border-t border-outline-variant/30">
+              <p className="font-body-md text-body-md italic text-on-surface-variant">
+                "A rapidez na entrega e o suporte nas reposições foram fundamentais para o
+                crescimento da nossa seção de empório."
+              </p>
+              <p className="font-body-md text-body-md font-bold text-on-surface mt-2">
+                — Ricardo Mendes, Rede de Supermercados Verdemar
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Info */}
+        </div>
+      </section>
+
+      {/* ── Formulário de Contato ─────────────────────────────────────────────── */}
+      <section
+        id="contact-form"
+        className="py-section-padding px-gutter bg-on-background text-white relative overflow-hidden"
+      >
+        {/* Accent bg */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary opacity-5 -skew-x-12 translate-x-1/2 pointer-events-none" />
+
+        <div className="max-w-container-max mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left — info */}
             <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary">location_on</span>
+              <h2 className="font-h2 text-h1-mobile md:text-h1 text-white">
+                Inicie uma parceria de sucesso hoje.
+              </h2>
+              <p className="font-body-lg text-body-lg text-white/70">
+                Preencha o formulário e nossa equipe comercial entrará em contato em até 24 horas
+                úteis com nossa tabela de atacado e condições especiais para o seu CNPJ.
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary-fixed">call</span>
+                  </div>
+                  <div>
+                    <p className="font-label-sm text-label-sm text-white/50 uppercase">Telefone / WhatsApp</p>
+                    <p className="font-body-lg text-body-lg font-bold">+55 (31) 98765-4321</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-h3 text-body-lg font-semibold text-on-surface mb-1">Endereço</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    Av. das Palmeiras, 1500 — Distrito Industrial<br />
-                    Belo Horizonte — MG, CEP 30000-000
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary">call</span>
-                </div>
-                <div>
-                  <h3 className="font-h3 text-body-lg font-semibold text-on-surface mb-1">Telefone</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">+55 (31) 9876-5432</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary">mail</span>
-                </div>
-                <div>
-                  <h3 className="font-h3 text-body-lg font-semibold text-on-surface mb-1">E-mail</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">sac@minasdoce.com.br</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary">schedule</span>
-                </div>
-                <div>
-                  <h3 className="font-h3 text-body-lg font-semibold text-on-surface mb-1">Horário de Atendimento</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    Segunda a sexta, das 08h às 18h<br />
-                    Sábado, das 08h às 12h
-                  </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary-fixed">mail</span>
+                  </div>
+                  <div>
+                    <p className="font-label-sm text-label-sm text-white/50 uppercase">E-mail Comercial</p>
+                    <p className="font-body-lg text-body-lg font-bold">parcerias@minasdoce.com.br</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* WhatsApp CTA */}
-            <div className="bg-surface-container border border-surface-variant rounded-xl p-8 flex flex-col items-center justify-center text-center">
-              <span className="material-symbols-outlined text-tertiary mb-4" style={{ fontSize: '56px' }}>chat</span>
-              <h3 className="font-h2 text-h2 text-on-surface mb-3">
-                Prefere o WhatsApp?
-              </h3>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                Nossa equipe está disponível para tirar dúvidas, enviar tabela de preços
-                e iniciar seu cadastro de parceiro.
-              </p>
-              <a
-                href={WA_PARCEIRO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-tertiary text-on-tertiary rounded-xl font-body-md font-bold hover:opacity-90 transition-all text-lg"
-              >
-                <span className="material-symbols-outlined">chat_bubble</span>
-                Falar pelo WhatsApp
-              </a>
-              <p className="font-label-sm text-label-sm text-on-surface-variant mt-4 uppercase tracking-wide">
-                Resposta em até 1 hora útil
-              </p>
+            {/* Right — form */}
+            <div className="bg-white rounded-xl p-8 lg:p-10 text-on-surface">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="md:col-span-2 space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    Nome Completo
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Seu nome"
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    E-mail Corporativo
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="seu@empresa.com.br"
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    WhatsApp
+                  </label>
+                  <input
+                    name="phone"
+                    type="tel"
+                    required
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="(00) 00000-0000"
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    Razão Social / CNPJ
+                  </label>
+                  <input
+                    name="company"
+                    type="text"
+                    required
+                    value={form.company}
+                    onChange={handleChange}
+                    placeholder="Nome da sua empresa"
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    Cidade / UF
+                  </label>
+                  <input
+                    name="city"
+                    type="text"
+                    required
+                    value={form.city}
+                    onChange={handleChange}
+                    placeholder="Onde você está?"
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  />
+                </div>
+
+                <div className="md:col-span-2 space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    Interesse Principal
+                  </label>
+                  <select
+                    name="interest"
+                    value={form.interest}
+                    onChange={handleChange}
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                  >
+                    {INTERESTS.map((opt) => (
+                      <option key={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="md:col-span-2 space-y-2">
+                  <label className="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant block">
+                    Mensagem (Opcional)
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    placeholder="Conte-nos um pouco sobre o seu negócio..."
+                    className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-3 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary resize-none"
+                  />
+                </div>
+
+                <div className="md:col-span-2 pt-4">
+                  <button
+                    type="submit"
+                    className="w-full bg-primary text-on-primary py-4 rounded-xl font-label-sm text-label-sm font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md inline-flex items-center justify-center gap-2"
+                  >
+                    <span className="material-symbols-outlined">chat</span>
+                    Enviar pelo WhatsApp
+                  </button>
+                  <p className="text-center text-on-surface-variant mt-4 opacity-70" style={{ fontSize: '10px' }}>
+                    Ao enviar, você concorda com nossa Política de Privacidade e termos de uso comercial.
+                  </p>
+                </div>
+              </form>
             </div>
           </div>
         </div>
