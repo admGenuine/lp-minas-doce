@@ -18,8 +18,8 @@ export default function Navbar() {
     <header className="bg-surface/95 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant">
       <nav className="relative flex items-center justify-between h-20 px-gutter max-w-container-max mx-auto">
         {/* Logo */}
-        <Link to="/" className="font-h3 text-h3 text-primary shrink-0 hover:opacity-75 transition-opacity">
-          Minas Doce
+        <Link to="/" className="shrink-0 hover:opacity-75 transition-opacity ml-8">
+          <img src="/logo.svg" alt="Minas Doce" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav + CTA */}

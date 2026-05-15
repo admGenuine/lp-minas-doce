@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-section-md px-gutter max-w-container-max mx-auto">
         {/* Brand */}
         <div className="col-span-1">
-          <div className="font-h3 text-h3 text-primary-fixed mb-6">Minas Doce</div>
+          <img src="/simbolo.svg" alt="Símbolo Minas Doce" className="h-20 w-auto mb-6" />
           <p className="text-on-primary-container/80 font-body-md text-body-md mb-6 leading-relaxed">
             Tradição e qualidade mineira entregues com eficiência para o seu negócio crescer com sabor e confiança.
           </p>
