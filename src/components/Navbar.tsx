@@ -9,9 +9,7 @@ export default function Navbar() {
   const onCatalog = pathname === '/catalogo'
   const onPartner = pathname === '/parceiro'
   const onHistory = pathname === '/historia'
-  const onHome = pathname === '/'
-
-  const anchor = (hash: string) => (onHome ? hash : `/${hash}`)
+  const onContact = pathname === '/contato'
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -47,12 +45,12 @@ export default function Navbar() {
           >
             Nossa História
           </Link>
-          <a
-            href={anchor('#contato')}
-            className={`${linkBase} ${linkIdle}`}
+          <Link
+            to="/contato"
+            className={`${linkBase} ${onContact ? linkActive : linkIdle}`}
           >
             Contato
-          </a>
+          </Link>
         </div>
 
         {/* Desktop CTA */}
@@ -102,13 +100,13 @@ export default function Navbar() {
             >
               Nossa História
             </Link>
-            <a
-              href={anchor('#contato')}
+            <Link
+              to="/contato"
               onClick={closeMenu}
-              className={`${linkBase} ${linkIdle} py-3 border-b border-outline-variant/50`}
+              className={`${linkBase} ${onContact ? linkActive : linkIdle} py-3 border-b border-outline-variant/50`}
             >
               Contato
-            </a>
+            </Link>
             <a
               href={WA_ORCAMENTO}
               target="_blank"

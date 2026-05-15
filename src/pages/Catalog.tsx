@@ -9,11 +9,11 @@ const WA_CATALOGO = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+re
 const WA_CONSULTOR = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+consultor+da+Minas+Doce.'
 
 export default function Catalog() {
-  const [selected, setSelected] = useState<Category[]>([...CATEGORIES])
+  const [selected, setSelected] = useState<Category | null>(null)
   const [visibleCount, setVisibleCount] = useState(CARDS_PER_LOAD)
 
   const filtered = useMemo(
-    () => products.filter((p) => selected.includes(p.category)),
+    () => selected ? products.filter((p) => p.category === selected) : products,
     [selected],
   )
 
@@ -21,9 +21,7 @@ export default function Catalog() {
   const remaining = filtered.length - visibleCount
 
   const toggle = (cat: Category) => {
-    setSelected((prev) =>
-      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat],
-    )
+    setSelected((prev) => prev === cat ? null : cat)
     setVisibleCount(CARDS_PER_LOAD)
   }
 
@@ -49,53 +47,27 @@ export default function Catalog() {
               <h2 className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-6">
                 Filtrar por linha
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {CATEGORIES.map((cat) => (
-                  <label key={cat} className="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      checked={selected.includes(cat)}
-                      onChange={() => toggle(cat)}
-                      className="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/30 cursor-pointer"
-                    />
-                    <span className="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">
-                      {cat}
-                    </span>
-                  </label>
+                  <button
+                    key={cat}
+                    onClick={() => toggle(cat)}
+                    className={`w-full text-left px-4 py-2.5 rounded-lg font-body-md text-body-md transition-all ${
+                      selected === cat
+                        ? 'bg-primary text-on-primary'
+                        : 'text-on-surface hover:bg-surface-variant'
+                    }`}
+                  >
+                    {cat}
+                  </button>
                 ))}
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-outline-variant/50 space-y-3">
-                <button
-                  onClick={() => { setSelected([...CATEGORIES]); setVisibleCount(CARDS_PER_LOAD) }}
-                  className="w-full text-center font-label-sm text-label-sm text-primary hover:underline uppercase tracking-wide"
-                >
-                  Selecionar tudo
-                </button>
-                <button
-                  onClick={() => { setSelected([]); setVisibleCount(CARDS_PER_LOAD) }}
-                  className="w-full text-center font-label-sm text-label-sm text-on-surface-variant hover:underline uppercase tracking-wide"
-                >
-                  Limpar filtros
-                </button>
               </div>
             </div>
           </aside>
 
           {/* ── Product Grid ────────────────────────────────────────────────── */}
           <div className="flex-1">
-            {selected.length === 0 ? (
-              <div className="py-24 text-center">
-                <span className="material-symbols-outlined text-outline mb-4 block" style={{ fontSize: '64px' }}>
-                  search_off
-                </span>
-                <p className="font-h3 text-h3 text-on-surface-variant">Nenhuma categoria selecionada</p>
-                <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-                  Marque pelo menos uma categoria na lateral para ver os produtos.
-                </p>
-              </div>
-            ) : (
-              <>
+            <>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                   {displayed.map((p) => (
                     <div
@@ -153,8 +125,7 @@ export default function Catalog() {
                     </button>
                   </div>
                 )}
-              </>
-            )}
+            </>
           </div>
         </div>
       </div>

@@ -1,18 +1,34 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import Partner from './pages/Partner'
 import History from './pages/History'
+import PageTransition from './components/PageTransition'
+import ScrollToTop from './components/ScrollToTop'
+import Contact from './pages/Contact'
 
-export default function App() {
+function AnimatedRoutes() {
+  const location = useLocation()
   return (
-    <BrowserRouter>
-      <Routes>
+    <>
+      <ScrollToTop />
+      <PageTransition key={location.pathname}>
+        <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalog />} />
         <Route path="/parceiro" element={<Partner />} />
         <Route path="/historia" element={<History />} />
+        <Route path="/contato" element={<Contact />} />
       </Routes>
+    </PageTransition>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
     </BrowserRouter>
   )
 }
