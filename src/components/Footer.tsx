@@ -57,11 +57,11 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-3 text-on-primary-container/80">
               <span className="material-symbols-outlined text-primary-fixed" style={{ fontSize: '18px' }}>call</span>
-              <span className="font-body-md text-body-md">+55 (31) 9876-5432</span>
+              <span className="font-body-md text-body-md">(34) 9 9651-1781 · (34) 3851-2508</span>
             </li>
             <li className="flex items-center gap-3 text-on-primary-container/80">
               <span className="material-symbols-outlined text-primary-fixed" style={{ fontSize: '18px' }}>mail</span>
-              <span className="font-body-md text-body-md">sac@minasdoce.com.br</span>
+              <span className="font-body-md text-body-md">joseneto@minasdoce.com</span>
             </li>
           </ul>
         </div>

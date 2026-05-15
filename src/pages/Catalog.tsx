@@ -5,8 +5,8 @@ import { products, CATEGORIES, categoryBadge, type Category } from '../data/prod
 
 const CARDS_PER_LOAD = 6
 
-const WA_CATALOGO = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+receber+o+cat%C3%A1logo+completo+da+Minas+Doce.'
-const WA_CONSULTOR = 'https://wa.me/5531987654321?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+consultor+da+Minas+Doce.'
+const WA_CATALOGO = 'https://wa.me/5534996511781?text=Ol%C3%A1%2C+gostaria+de+receber+o+cat%C3%A1logo+completo+da+Minas+Doce.'
+const WA_CONSULTOR = 'https://wa.me/5534996511781?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+consultor+da+Minas+Doce.'
 
 export default function Catalog() {
   const [selected, setSelected] = useState<Category | null>(null)

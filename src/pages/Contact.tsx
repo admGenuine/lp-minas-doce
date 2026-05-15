@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-const WA_BASE = 'https://wa.me/5541996832244'
+const WA_BASE = 'https://wa.me/5534996511781'
 
 interface FormState {
   name: string
@@ -75,19 +75,19 @@ export default function Contact() {
         <div className="flex flex-col lg:flex-row gap-12">
 
           {/* Info */}
-          <div className="lg:w-72 shrink-0 space-y-4">
+          <div className="lg:w-80 shrink-0 space-y-4">
             {[
               {
                 icon: 'call',
                 label: 'Telefone / WhatsApp',
-                value: '+55 (31) 98765-4321',
+                value: '(34) 9 9651-1781\n(34) 3851-2508',
                 href: `${WA_BASE}?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+Minas+Doce.`,
               },
               {
                 icon: 'mail',
                 label: 'E-mail',
-                value: 'sac@minasdoce.com.br',
-                href: 'mailto:sac@minasdoce.com.br',
+                value: 'joseneto@minasdoce.com',
+                href: 'mailto:joseneto@minasdoce.com',
               },
               {
                 icon: 'location_on',
@@ -111,7 +111,7 @@ export default function Contact() {
                     {icon}
                   </span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide mb-1">
                     {label}
                   </p>

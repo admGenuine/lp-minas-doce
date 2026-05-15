@@ -49,7 +49,7 @@ export default function Home() {
       `Interesse: ${form.interest}`,
     ]
     if (form.message.trim()) lines.push('', `Mensagem: ${form.message}`)
-    window.open(`https://wa.me/5531987654321?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
+    window.open(`https://wa.me/5534996511781?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
   }
 
   return (
@@ -267,7 +267,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-label-sm text-label-sm text-white/50 uppercase">Telefone / WhatsApp</p>
-                    <p className="font-body-lg text-body-lg font-bold">+55 (31) 98765-4321</p>
+                    <p className="font-body-lg text-body-lg font-bold">(34) 9 9651-1781 · (34) 3851-2508</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -276,7 +276,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-label-sm text-label-sm text-white/50 uppercase">E-mail Comercial</p>
-                    <p className="font-body-lg text-body-lg font-bold">parcerias@minasdoce.com.br</p>
+                    <p className="font-body-lg text-body-lg font-bold">joseneto@minasdoce.com</p>
                   </div>
                 </div>
               </div>
