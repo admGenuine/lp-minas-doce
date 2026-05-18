@@ -91,24 +91,14 @@ export default function Catalog() {
                         <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">
                           {p.description}
                         </p>
-                        <div className="flex items-center justify-between gap-4">
-                          <a
-                            href={p.waQuote}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center"
-                          >
-                            Solicitar Orçamento
-                          </a>
-                          <a
-                            href={p.waDetails}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:bg-surface-variant transition-all"
-                          >
-                            <span className="material-symbols-outlined">visibility</span>
-                          </a>
-                        </div>
+                        <a
+                          href={p.waQuote}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center"
+                        >
+                          Solicitar Orçamento
+                        </a>
                       </div>
                     </div>
                   ))}
