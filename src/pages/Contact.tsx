@@ -18,6 +18,11 @@ const SUBJECTS = [
   'Distribuição Atacadista',
   'Revenda em Varejo/Empório',
   'Exportação',
+  'Comércio',
+  'Distribuidora',
+  'Representante Comercial',
+  'Feirante',
+  'Vendedor Ambulante (porta a porta)',
 ]
 
 export default function Contact() {
