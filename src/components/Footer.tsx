@@ -69,7 +69,7 @@ export default function Footer() {
 
       <div className="max-w-container-max mx-auto px-gutter py-8 border-t border-white/5 text-center md:text-left">
         <p className="text-on-primary-container/60 font-body-md text-body-md">
-          © 2024 Minas Doce Tradicional. Todos os direitos reservados. Qualidade artesanal para parceiros B2B.
+          © 2026 Minas Doce Tradicional. Todos os direitos reservados. Qualidade artesanal para parceiros B2B.
         </p>
       </div>
     </footer>

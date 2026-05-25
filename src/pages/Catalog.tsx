@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { products, CATEGORIES, categoryBadge, type Category } from '../data/products'
+import { products, CATEGORIES, categoryBadge, type Category, type Product } from '../data/products'
 
 const CARDS_PER_LOAD = 6
 
@@ -11,6 +12,16 @@ const WA_CONSULTOR = 'https://wa.me/5534996511781?text=Ol%C3%A1%2C+gostaria+de+f
 export default function Catalog() {
   const [selected, setSelected] = useState<Category | null>(null)
   const [visibleCount, setVisibleCount] = useState(CARDS_PER_LOAD)
+  const [activeProduct, setActiveProduct] = useState<Product | null>(null)
+
+  useEffect(() => {
+    if (activeProduct) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [activeProduct])
 
   const filtered = useMemo(
     () => selected ? products.filter((p) => p.category === selected) : products,
@@ -72,7 +83,8 @@ export default function Catalog() {
                   {displayed.map((p) => (
                     <div
                       key={p.id}
-                      className="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover"
+                      onClick={() => setActiveProduct(p)}
+                      className="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden editorial-shadow card-hover cursor-pointer"
                     >
                       <div className="aspect-[4/3] relative">
                         <img
@@ -95,6 +107,7 @@ export default function Catalog() {
                           href={p.waQuote}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className="block w-full px-4 py-2 bg-primary text-on-primary rounded-lg font-body-md font-medium hover:opacity-90 transition-all text-center"
                         >
                           Solicitar Orçamento
@@ -152,6 +165,54 @@ export default function Catalog() {
       </section>
 
       <Footer />
+
+      {activeProduct && createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm"
+          onClick={() => setActiveProduct(null)}
+        >
+          <div
+            className="bg-surface-container-lowest rounded-2xl editorial-shadow w-full max-w-sm flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative">
+              <img
+                src={activeProduct.image}
+                alt={activeProduct.name}
+                className="w-full aspect-square object-cover"
+              />
+              <button
+                onClick={() => setActiveProduct(null)}
+                className="absolute top-3 right-3 bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all"
+                aria-label="Fechar"
+              >
+                <span className="material-symbols-outlined text-lg">close</span>
+              </button>
+              <div className="absolute top-3 left-3">
+                <span className={`${categoryBadge[activeProduct.category]} px-2.5 py-1 rounded font-label-sm text-label-sm uppercase`}>
+                  {activeProduct.category}
+                </span>
+              </div>
+            </div>
+            <div className="p-5">
+              <h2 className="font-h3 text-h3 text-on-surface mb-2">{activeProduct.name}</h2>
+              <p className="font-body-md text-body-md text-on-surface-variant mb-5">
+                {activeProduct.description}
+              </p>
+              <a
+                href={activeProduct.waQuote}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-primary text-on-primary rounded-xl font-body-md font-semibold hover:opacity-90 transition-all text-center"
+              >
+                <span className="material-symbols-outlined text-lg">chat</span>
+                Solicitar Orçamento
+              </a>
+            </div>
+          </div>
+        </div>,
+        document.body,
+      )}
     </div>
   )
 }

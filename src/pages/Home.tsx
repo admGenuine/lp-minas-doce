@@ -93,8 +93,8 @@ export default function Home() {
           <div className="relative">
             <div className="rounded-xl overflow-hidden shadow-xl aspect-[4/3] relative group">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfaVezl1St-cjTpVjumLF8_YI4JzzNsJvfQqEhE6KbuKSoh9EOtno264EijC7BC3XoL4Hlr3DDi073InJIwwiDfPSa2bizA7aALqDz1yon4TzugSGo7R5yVv6iAVDzqr5AXIxj5O6ga0XtlwkzHAGVxQI54qZ0KGENyRddHdfYQZCEU_DpZc2jplHdd-moLYFIBnZ8Roa2nqtnWlbnXtyG6k8clj-7QX5_IMvhqDJoBITT6rTGEJLjEZQdrl_kZ9dCMeYyIjGOOzI"
-                alt="Interior de loja parceira Minas Doce"
+                src="/hero-produtos.jpg"
+                alt="Linha de produtos Minas Doce"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
