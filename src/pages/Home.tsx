@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -25,6 +26,7 @@ interface FormState {
 }
 
 export default function Home() {
+  const navigate = useNavigate()
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -55,6 +57,7 @@ export default function Home() {
     ]
     if (form.message.trim()) lines.push('', `Mensagem: ${form.message}`)
     window.open(`https://wa.me/5534996511781?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
+    navigate('/obrigado', { state: { fromForm: true } })
   }
 
   return (

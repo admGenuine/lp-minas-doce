@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -26,6 +27,7 @@ const SUBJECTS = [
 ]
 
 export default function Contact() {
+  const navigate = useNavigate()
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -56,6 +58,7 @@ export default function Contact() {
     ]
     if (form.message.trim()) lines.push('', `Mensagem: ${form.message}`)
     window.open(`${WA_BASE}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
+    navigate('/obrigado', { state: { fromForm: true } })
   }
 
   return (
