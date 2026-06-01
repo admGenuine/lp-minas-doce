@@ -36,11 +36,6 @@ export default function Footer() {
                 Seja Parceiro
               </Link>
             </li>
-            <li>
-              <Link to="/nossa-historia" className="text-on-primary-container/80 hover:text-primary-fixed transition-colors font-body-md text-body-md">
-                Nossa História
-              </Link>
-            </li>
           </ul>
         </div>
 
